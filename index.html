@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workspaceti</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<!-- Fonte -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    background: radial-gradient(circle at top, #133b5c, #0b1f33 70%);
+}
+
+/* CAMADA ANIMADA TECH */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,212,255,0.15) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: moveGrid 20s linear infinite;
+    z-index: -2;
+}
+
+/* GLOW SUAVE */
+body::after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0,212,255,0.08), transparent 70%);
+    z-index: -1;
+}
+
+/* MOVIMENTO DO GRID */
+@keyframes moveGrid {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-200px, -200px);
+    }
+}
+
+@keyframes moveBg {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-30%, -30%); }
+    100% { transform: translate(0,0); }
+}
+
+/* CONTAINER */
+.container {
+    max-width: 420px;
+    margin-top: 80px;
+}
+
+/* LOGO */
+.logo {
+    width: 140px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    box-shadow: 0 0 30px rgba(244,197,66,0.7);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(244,197,66,0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(244,197,66,0.9); }
+    100% { transform: scale(1); box-shadow: 0 0 10px rgba(244,197,66,0.4); }
+}
+
+/* BOTÕES NEON */
+.btn-linktree {
+    display: block;
+    margin: 12px 0;
+    padding: 14px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    background: rgba(28,93,133,0.25);
+    border: 1px solid #00d4ff;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.btn-linktree:hover {
+    background: #00d4ff;
+    color: #0b1f33;
+    box-shadow: 0 0 25px #00d4ff;
+    transform: translateY(-3px);
+}
+
+/* LOADING */
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #0b1f33;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.spinner {
+    border: 5px solid #133b5c;
+    border-top: 5px solid #00d4ff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* TEXTO */
+h2 {
+    font-weight: 600;
+}
+
+p {
+    opacity: 0.8;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 20px;
+    font-size: 12px;
+    opacity: 0.5;
+}
+</style>
+
+</head>
+
+<body>
+    
+<!-- PARTICULAS -->
+<div id="tsparticles"></div>
+
+
+<!-- LOADING -->
+<div id="loader">
+    <div class="spinner"></div>
+</div>
+
+<div class="container">
+
+    <img src="img/logo.png" class="logo">
+
+    <h2>@workspaceti</h2>
+    <p>Dicas de TI & Negócios</p>
+
+    <a href="cursos.html" class="btn-linktree"><i class="fas fa-graduation-cap"></i> Cursos</a>
+    <a href="ebooks.html" class="btn-linktree"><i class="fas fa-book"></i> eBooks</a>    
+    <a href="mentoria.html" class="btn-linktree"><i class="fas fa-bullseye"></i> Mentoria</a>
+    <a href="servicos.html" class="btn-linktree"><i class="fas fa-code"></i> Serviços</a>    
+    <a href="https://youtube.com/@workspacetinegocios" class="btn-linktree"><i class="fab fa-youtube"></i> YouTube</a>
+    <a href="https://www.linkedin.com/in/pedro-henrique-sis/" class="btn-linktree"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <a href="https://wa.me/558192651174" class="btn-linktree"><i class="fab fa-whatsapp"></i> Fale comigo</a>
+
+    <div id="tsparticles"></div>
+    <div class="footer">
+        © 2026 Workspaceti
+    </div>
+
+</div>
+
+<script>
+// REMOVE LOADING
+window.onload = function() {
+    document.getElementById("loader").style.display = "none";
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<script>
+tsParticles.load("tsparticles", {
+    fpsLimit: 60,
+    interactivity: {
+        events: {
+            onHover: { enable: true, mode: "repulse" },
+            onClick: { enable: true, mode: "push" },
+            resize: true
+        },
+        modes: {
+            repulse: { distance: 100, duration: 0.4 },
+            push: { quantity: 4 }
+        }
+    },
+    particles: {
+        color: { value: "#00d4ff" },
+        links: {
+            color: "#00d4ff",
+            distance: 150,
+            enable: true,
+            opacity: 0.5,
+            width: 1
+        },
+        collisions: { enable: false },
+        move: {
+            direction: "none",
+            enable: true,
+            outModes: { default: "bounce" },
+            random: false,
+            speed: 2,
+            straight: false
+        },
+        number: { density: { enable: true, area: 800 }, value: 80 },
+        opacity: { value: 0.5 },
+        shape: { type: "circle" },
+        size: { value: { min: 1, max: 3 } }
+    },
+    detectRetina: true
+});
+</script>
+
+</body>
+</html>

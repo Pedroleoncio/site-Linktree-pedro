@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transição - Workspaceti</title>
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #0b1f33, #133b5c);
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+/* partículas */
+#tsparticles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.container-box {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    z-index: 1;
+}
+
+/* header */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* botão voltar */
+.btn-back {
+    background: #0cc3e7;
+    border-radius: 25px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* card */
+.card-custom {
+    background: #1c5d85;
+    border-radius: 15px;
+    padding: 20px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.card-custom:hover {
+    background: #f4c542;
+    color: #0b1f33;
+    transform: translateY(-3px);
+}
+
+.card-icon {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.card-content h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* botão whatsapp */
+.btn-whatsapp {
+    display: block;
+    background: #25D366;
+    padding: 12px;
+    border-radius: 25px;
+    width: 100%;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+/* footer */
+.footer {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 15px;
+    opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<div id="tsparticles"></div>
+
+<div class="container-box">
+
+    <!-- botão voltar -->
+    <button onclick="voltarPagina()" class="btn-back">
+        <i class="fas fa-arrow-left"></i> Voltar
+    </button>
+
+    <!-- header -->
+    <div class="header">
+         <img src="img/logo.png" class="logo">
+        <h5>Transição para TI</h5>
+        <p>Saia da dúvida e entre na área com direção</p>
+    </div>
+
+    <!-- CARD ÚNICO -->
+    <div class="card-content">
+    <h5>Chegou a hora de mudar de vida</h5>
+
+    <p>
+        Você não precisa de anos para entrar na área de TI.<br>
+        Você precisa de um <strong>plano certo</strong>.
+    </p>
+
+    <p>
+        A maioria das pessoas trava porque aprende de forma aleatória,<br>
+        sem direção, sem estratégia e sem entender o que o mercado realmente cobra.
+    </p>
+
+    <p><strong>Aqui você vai descobrir exatamente:</strong></p>
+
+    <p style="text-align: left; margin-top: 10px;">
+        ✅ Por onde começar<br>
+        ✅ O que estudar (sem perder tempo)<br>
+        ✅ Como se posicionar mesmo sendo iniciante<br>
+        ✅ Como conquistar sua primeira oportunidade
+    </p>
+
+    <p style="margin-top: 10px;">
+        Se você quer sair do zero ou mudar de área,<br>
+        essa mentoria vai encurtar anos do seu caminho.
+    </p>
+</div>
+
+
+    <!-- botão -->
+    <a href="https://wa.me/558192651174" class="btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> Quero começar minha transição
+    </a>
+
+    <div class="footer">
+        © 2026 Workspaceti
+    </div>
+
+</div>
+
+<script>
+function voltarPagina() {
+    if (window.history.length > 1) {
+        window.history.back();
+    } else {
+        window.location.href = "mentoria.html";
+    }
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+tsParticles.load("tsparticles", {
+    particles: {
+        number: { value: 80 },
+        color: { value: "#00d4ff" },
+        links: {
+            enable: true,
+            distance: 150,
+            color: "#00d4ff"
+        },
+        move: { enable: true, speed: 2 }
+    }
+});
+</script>
+
+</body>
+</html>

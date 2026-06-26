@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crescimento - Workspaceti</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #0b1f33, #133b5c);
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+/* partículas */
+#tsparticles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* container */
+.container-box {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    z-index: 1;
+}
+
+/* header */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* botão voltar */
+.btn-back {
+    background: #0cc3e7;
+    border-radius: 25px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* cards */
+.card-custom {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #1c5d85;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.card-custom:hover {
+    background: #f4c542;
+    color: #0b1f33;
+}
+
+/* icon */
+.card-icon {
+    font-size: 18px;
+}
+
+/* texto */
+.card-content h5 {
+    font-size: 15px;
+    margin: 0;
+}
+
+.card-content p {
+    font-size: 13px;
+    margin: 2px 0 0 0;
+    opacity: 0.85;
+}
+
+/* botão whatsapp */
+.btn-whatsapp {
+    display: block;
+    background: #25D366;
+    padding: 12px;
+    border-radius: 25px;
+    width: 100%;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+/* footer */
+.footer {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 15px;
+    opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<div id="tsparticles"></div>
+
+<div class="container-box">
+
+    <button onclick="voltarPagina()" class="btn-back">
+        <i class="fas fa-arrow-left"></i> Voltar
+    </button>
+
+    <div class="header">
+       <img src="img/logo.png" class="logo">
+        <h5>Crescimento na Carreira</h5>
+        <p>Evolua com estratégia e posicionamento</p>
+    </div>
+
+    <!-- CARDS -->
+
+    <div class="card-custom">
+        <i class="fas fa-arrow-up card-icon"></i>
+        <div class="card-content">
+            <h5>Plano de Crescimento</h5>
+            <p>Defina metas claras para evolução profissional.</p>
+        </div>
+    </div>
+
+    <div class="card-custom">
+        <i class="fas fa-users card-icon"></i>
+        <div class="card-content">
+            <h5>Networking Estratégico</h5>
+            <p>Construa conexões que abrem oportunidades.</p>
+        </div>
+    </div>
+
+    <div class="card-custom">
+        <i class="fas fa-laptop-code card-icon"></i>
+        <div class="card-content">
+            <h5>Especialização Técnica</h5>
+            <p>Se destaque dominando tecnologias de alto valor.</p>
+        </div>
+    </div>
+
+    <div class="card-custom">
+        <i class="fas fa-briefcase card-icon"></i>
+        <div class="card-content">
+            <h5>Promoção e Salário</h5>
+            <p>Aprenda a negociar crescimento e reconhecimento.</p>
+        </div>
+    </div>
+
+    <div class="card-custom">
+        <i class="fas fa-star card-icon"></i>
+        <div class="card-content">
+            <h5>Marca Pessoal</h5>
+            <p>Se torne referência dentro da sua área.</p>
+        </div>
+    </div>
+
+    <a href="https://wa.me/5581995935475" class="btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> Agendar Mentoria
+    </a>
+
+    <div class="footer">
+        © 2026 Workspaceti
+    </div>
+
+</div>
+
+<script>
+function voltarPagina() {
+    if (window.history.length > 1) {
+        window.history.back();
+    } else {
+        window.location.href = "mentoria.html";
+    }
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+tsParticles.load("tsparticles", {
+    particles: {
+        number: { value: 80 },
+        color: { value: "#00d4ff" },
+        links: {
+            enable: true,
+            distance: 150,
+            color: "#00d4ff"
+        },
+        move: { enable: true, speed: 2 }
+    }
+});
+</script>
+
+</body>
+</html>

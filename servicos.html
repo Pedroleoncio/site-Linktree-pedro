@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Serviços de TI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    text-align: center;
+    color: white;
+    background: radial-gradient(circle at top, #133b5c, #0b1f33 70%);
+}
+
+/* FUNDO ANIMADO */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,212,255,0.12) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: bgMove 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes bgMove {
+    from { transform: translate(0,0); }
+    to { transform: translate(-200px,-200px); }
+}
+
+.container {
+    max-width: 420px;
+    margin: 60px auto;
+}
+
+/* LOGO */
+.logo {
+    width: 130px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    box-shadow: 0 0 20px #00d4ff;
+}
+
+/* BOTÃO VOLTAR */
+.btn-voltar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #00d4ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+/* CARD */
+.card-link {
+    margin: 12px 0;
+    padding: 18px;
+    border-radius: 40px;
+    border: 1px solid #00d4ff;
+    background: rgba(28,93,133,0.25);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* HOVER */
+.card-link:hover {
+    background: #00d4ff;
+    color: #0b1f33;
+}
+
+/* ATIVO */
+.card-link.active {
+    background: #00d4ff;
+    color: #0b1f33;
+    box-shadow: 0 0 20px #00d4ff;
+}
+
+/* DETALHE ANIMADO */
+.card-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.card-detail.open {
+    max-height: 300px;
+    opacity: 1;
+    margin-bottom: 10px;
+}
+
+/* CONTEUDO */
+.card-content {
+    padding: 15px;
+    font-size: 14px;
+    text-align: left;
+    border-left: 3px solid #00d4ff;
+}
+
+/* BOTÃO WHATS */
+.btn-whats {
+    margin-top: 25px;
+    display: block;
+    padding: 14px;
+    border-radius: 30px;
+    background: #25d366;
+    color: white;
+    text-decoration: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="btn-voltar">←</a>
+
+<div class="container">
+    
+    <img src="img/logo.png" class="logo">
+
+    <h2>🚀 Serviços de TI</h2>
+    <p>Soluções modernas para acelerar seu negócio</p>
+
+    <!-- CARD 1 -->
+    <div class="card-link" onclick="toggleCard('dev', this)">
+        💻 Desenvolvimento
+    </div>
+    <div id="dev" class="card-detail">
+        <div class="card-content">
+            Sistemas web, APIs e soluções personalizadas.<br><br>
+            ✅ Sistemas internos<br>
+            ✅ Integrações<br>
+            ✅ Dashboards
+        </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card-link" onclick="toggleCard('auto', this)">
+        ⚙️ Automação
+    </div>
+    <div id="auto" class="card-detail">
+        <div class="card-content">
+            Automatize tarefas e reduza custos.<br><br>
+            ✅ Python<br>
+            ✅ Bots<br>
+            ✅ Integrações
+        </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card-link" onclick="toggleCard('proj', this)">
+        📊 Projetos de TI
+    </div>
+    <div id="proj" class="card-detail">
+        <div class="card-content">
+            Implementação e planejamento tecnológico.<br><br>
+            ✅ Implantações<br>
+            ✅ Governança<br>
+            ✅ Estruturação
+        </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="card-link" onclick="toggleCard('bi', this)">
+        📈 BI e Dashboards
+    </div>
+    <div id="bi" class="card-detail">
+        <div class="card-content">
+            Visualização de dados inteligente.<br><br>
+            ✅ Power BI<br>
+            ✅ Indicadores<br>
+            ✅ APIs
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <a href="https://wa.me/558192651174" class="btn-whats" onclick="trackClick('whatsapp')">
+        💬 Falar sobre projeto
+    </a>
+
+</div>
+
+<script>
+
+/* CONTROLE DE CARDS */
+function toggleCard(id, element){
+
+    const allDetails = document.querySelectorAll('.card-detail');
+    const allCards = document.querySelectorAll('.card-link');
+
+    allDetails.forEach(el => {
+        if(el.id !== id){
+            el.classList.remove('open');
+        }
+    });
+
+    allCards.forEach(c => c.classList.remove('active'));
+
+    const current = document.getElementById(id);
+
+    if(current.classList.contains('open')){
+        current.classList.remove('open');
+        element.classList.remove('active');
+    } else {
+        current.classList.add('open');
+        element.classList.add('active');
+    }
+
+    trackClick(id);
+}
+
+/* TRACKING (pode integrar com GA depois) */
+function trackClick(name){
+    console.log("Clique em:", name);
+
+    // Google Analytics (exemplo futuro)
+    // gtag('event', 'click', { event_category: 'servicos', event_label: name });
+}
+
+</script>
+
+</body>
+</html>

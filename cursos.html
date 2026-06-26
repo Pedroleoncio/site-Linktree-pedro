@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cursos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🎓 Cursos</h1>
+
+    <!-- FUTUROS CURSOS (descomentar quando tiver conteúdo) -->
+
+    <!--
+    <a href="#" class="o</a>
+    <a href="#" class="buttonython</a>
+    -->
+
+    <p class="message">Em breve novos cursos disponíveis 🚀</p>
+     <a href="index.html" class="button-card">⬅ Voltar</a>
+</div>
+
+<script>
+// REMOVE LOADING
+window.onload = function() {
+    document.getElementById("loader").style.display = "none";
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<script>
+tsParticles.load("tsparticles", {
+    fpsLimit: 60,
+    interactivity: {
+        events: {
+            onHover: { enable: true, mode: "repulse" },
+            onClick: { enable: true, mode: "push" },
+            resize: true
+        },
+        modes: {
+            repulse: { distance: 100, duration: 0.4 },
+            push: { quantity: 4 }
+        }
+    },
+    particles: {
+        color: { value: "#00d4ff" },
+        links: {
+            color: "#00d4ff",
+            distance: 150,
+            enable: true,
+            opacity: 0.5,
+            width: 1
+        },
+        collisions: { enable: false },
+        move: {
+            direction: "none",
+            enable: true,
+            outModes: { default: "bounce" },
+            random: false,
+            speed: 2,
+            straight: false
+        },
+        number: { density: { enable: true, area: 800 }, value: 80 },
+        opacity: { value: 0.5 },
+        shape: { type: "circle" },
+        size: { value: { min: 1, max: 3 } }
+    },
+    detectRetina: true
+});
+</script>
+
+</body>
+</html>

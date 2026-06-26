@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Posicionamento - Workspaceti</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #0b1f33, #133b5c);
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+#tsparticles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.container-box {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    z-index: 1;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.btn-back {
+    background: #0cc3e7;
+    border-radius: 25px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.card-custom {
+    background: #1c5d85;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card-custom:hover {
+    background: #f4c542;
+    color: #0b1f33;
+    transform: translateY(-3px);
+}
+
+.card-icon {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.card-content h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+.btn-whatsapp {
+    display: block;
+    background: #25D366;
+    padding: 12px;
+    border-radius: 25px;
+    width: 100%;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.footer {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 15px;
+    opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<div id="tsparticles"></div>
+
+<div class="container-box">
+
+    <button onclick="voltarPagina()" class="btn-back">
+        <i class="fas fa-arrow-left"></i> Voltar
+    </button>
+
+    <div class="header">
+         <img src="img/logo.png" class="logo">
+        <h5>Posicionamento Profissional</h5>
+        <p>Se destaque e seja escolhido</p>
+    </div>
+
+    <div class="card-custom">
+        <i class="fas fa-user-tie card-icon"></i>
+
+        <div class="card-content">
+            <h5>Se posicione ou continue invisível</h5>
+
+            <p>
+                Não basta saber fazer.<br>
+                Se você não aparece, não é lembrado.
+            </p>
+
+            <p>
+                Muitos profissionais ficam anos estagnados porque 
+                não sabem mostrar valor, não sabem se comunicar e não sabem se vender.
+            </p>
+
+            <p>
+                O mercado não escolhe o melhor técnico.<br>
+                Escolhe quem sabe se posicionar.
+            </p>
+
+            <p><strong>Aqui você vai aprender:</strong></p>
+
+            <p style="text-align:left; margin-top:10px;">
+                ✅ Como montar um LinkedIn que atrai recrutadores<br>
+                ✅ Como criar um currículo que destaca seu valor<br>
+                ✅ Como se vender em entrevistas com segurança<br>
+                ✅ Como se posicionar como profissional mesmo sendo iniciante
+            </p>
+
+            <p style="margin-top:10px;">
+                Quem se posiciona, cresce.<br>
+                Quem não aparece, fica para trás.
+            </p>
+        </div>
+    </div>
+
+    <a href="https://wa.me/558192651174" class="btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> Quero me posicionar melhor
+    </a>
+
+    <div class="footer">
+        © 2026 Workspaceti
+    </div>
+
+</div>
+
+<script>
+function voltarPagina() {
+    if (window.history.length > 1) {
+        window.history.back();
+    } else {
+        window.location.href = "mentoria.html";
+    }
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+tsParticles.load("tsparticles", {
+    particles: {
+        number: { value: 80 },
+        color: { value: "#00d4ff" },
+        links: {
+            enable: true,
+            distance: 150,
+            color: "#00d4ff"
+        },
+        move: { enable: true, speed: 2 }
+    }
+});
+</script>
+
+</body>
+</html>
