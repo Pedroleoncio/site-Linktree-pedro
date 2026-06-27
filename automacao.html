@@ -8,8 +8,13 @@
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 
+<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<!-- Fonte -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -17,24 +22,24 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(180deg, #0b1f33, #133b5c);
     color: white;
-    display: flex;
-    justify-content: center;
+    margin: 0;
 }
 
+/* PARTICULAS */
 #tsparticles {
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: -1;
 }
 
-.container-box {
+/* CONTAINER CENTRAL */
+.main-box {
+    max-width: 520px;
     width: 100%;
-    max-width: 420px;
-    padding: 20px;
-    z-index: 1;
 }
 
+/* HEADER */
 .header {
     text-align: center;
     margin-bottom: 20px;
@@ -46,24 +51,21 @@ body {
     margin-bottom: 10px;
 }
 
+/* BOTÃO VOLTAR */
 .btn-back {
-    background: #0cc3e7;
-    border-radius: 25px;
+    background: transparent;
     border: none;
-    color: #fff;
+    color: #0cc3e7;
     font-size: 14px;
     margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
     cursor: pointer;
 }
 
+/* CARD */
 .card-custom {
     background: #1c5d85;
     border-radius: 15px;
     padding: 20px;
-    text-align: center;
     transition: 0.3s;
 }
 
@@ -85,14 +87,21 @@ body {
 
 .card-content p {
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.6;
     opacity: 0.9;
 }
 
+/* LISTA */
+.list-itens {
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* BOTÃO */
 .btn-whatsapp {
     display: block;
     background: #25D366;
-    padding: 12px;
+    padding: 14px;
     border-radius: 25px;
     width: 100%;
     font-weight: 600;
@@ -100,13 +109,39 @@ body {
     text-align: center;
     text-decoration: none;
     margin-top: 15px;
+    transition: 0.3s;
 }
 
+.btn-whatsapp:hover {
+    background: #1ebe5d;
+}
+
+/* FOOTER */
 .footer {
     text-align: center;
     font-size: 12px;
     margin-top: 15px;
     opacity: 0.6;
+}
+
+/* RESPONSIVO */
+@media (max-width: 576px) {
+
+    .main-box {
+        padding: 15px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    .card-content h5 {
+        font-size: 16px;
+    }
+
+    .card-content p {
+        font-size: 13px;
+    }
 }
 </style>
 </head>
@@ -115,58 +150,68 @@ body {
 
 <div id="tsparticles"></div>
 
-<div class="container-box">
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+    <div class="main-box">
 
-    <button onclick="voltarPagina()" class="btn-back">
-        <i class="fas fa-arrow-left"></i> Voltar
-    </button>
+        <!-- VOLTAR -->
+        <button onclick="voltarPagina()" class="btn-back">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
 
-    <div class="header">
-        <img src="/img/logo.png" class="logo">
-        <h5>Automação</h5>
-        <p>Trabalhe menos no operacional e mais no estratégico</p>
-    </div>
-
-    <div class="card-custom">
-        <i class="fas fa-cogs card-icon"></i>
-
-        <div class="card-content">
-            <h5>Pare de fazer manual o que pode ser automático</h5>
-
-            <p>
-                Se você ainda perde tempo com tarefas repetitivas,<br>
-                está desperdiçando o ativo mais valioso: <strong>seu tempo</strong>.
-            </p>
-
-            <p>
-                Profissionais que crescem não trabalham mais.<br>
-                Eles trabalham de forma inteligente.
-            </p>
-
-            <p><strong>Aqui você vai aprender:</strong></p>
-
-            <p style="text-align:left; margin-top:10px;">
-                ✅ Automatizar tarefas do dia a dia<br>
-                ✅ Criar fluxos que trabalham por você<br>
-                ✅ Usar ferramentas que aumentam sua produtividade<br>
-                ✅ Se destacar como profissional estratégico
-            </p>
-
-            <p style="margin-top:10px;">
-                Quem automatiza, entrega mais.<br>
-                Quem entrega mais, cresce mais.
-            </p>
+        <!-- HEADER -->
+        <div class="header">
+            <img src="/img/logo.png" class="logo">
+            <h5>Automação</h5>
+            <p>Trabalhe menos no operacional e mais no estratégico</p>
         </div>
+
+        <!-- CARD -->
+        <div class="card-custom text-center">
+
+            <i class="fas fa-cogs card-icon"></i>
+
+            <div class="card-content">
+
+                <h5>Pare de fazer manual o que pode ser automático</h5>
+
+                <p>
+                    Se você ainda perde tempo com tarefas repetitivas,
+                    está desperdiçando o ativo mais valioso: <strong>seu tempo</strong>.
+                </p>
+
+                <p>
+                    Profissionais que crescem não trabalham mais.
+                    Eles trabalham de forma inteligente.
+                </p>
+
+                <p><strong>Aqui você vai aprender:</strong></p>
+
+                <div class="list-itens">
+                    ✅ Automatizar tarefas do dia a dia<br>
+                    ✅ Criar fluxos que trabalham por você<br>
+                    ✅ Usar ferramentas que aumentam sua produtividade<br>
+                    ✅ Se destacar como profissional estratégico
+                </div>
+
+                <p class="mt-3">
+                    Quem automatiza, entrega mais.
+                    Quem entrega mais, cresce mais.
+                </p>
+
+            </div>
+        </div>
+
+        <!-- BOTÃO -->
+        <a href="https://wa.me/558192651174" class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Quero automatizar meu trabalho
+        </a>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            © 2026 Workspaceti
+        </div>
+
     </div>
-
-    <a href="https://wa.me/558192651174" class="btn-whatsapp">
-        <i class="fab fa-whatsapp"></i> Quero automatizar meu trabalho
-    </a>
-
-    <div class="footer">
-        © 2026 Workspaceti
-    </div>
-
 </div>
 
 <script>
@@ -180,17 +225,14 @@ function voltarPagina() {
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
 <script>
 tsParticles.load("tsparticles", {
     particles: {
-        number: { value: 80 },
+        number: { value: 60 },
         color: { value: "#00d4ff" },
-        links: {
-            enable: true,
-            distance: 150,
-            color: "#00d4ff"
-        },
-        move: { enable: true, speed: 2 }
+        links: { enable: true, color: "#00d4ff" },
+        move: { enable: true, speed: 1 }
     }
 });
 </script>
