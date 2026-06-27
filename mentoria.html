@@ -6,55 +6,51 @@
 <title>Mentoria - Workspaceti</title>
 
 <!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+<link rel="icon" type="image/x-icon" href="img/favicon.ico">
 
+<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<!-- Fonte -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-
-    
-.card-custom {
-    cursor: pointer;
-}
-
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(180deg, #0b1f33, #133b5c);
+    margin: 0;
     color: white;
-    display: flex;
-    justify-content: center;
-    position: relative;
+    overflow-x: hidden;
+    background: linear-gradient(180deg, #0b1f33, #133b5c);
 }
 
-/* PARTÍCULAS */
+/* PARTICULAS */
 #tsparticles {
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: -1;
 }
 
 /* CONTAINER */
-.container-box {
+.main-box {
+    max-width: 480px;
     width: 100%;
-    max-width: 420px;
-    padding: 20px;
-    position: relative;
-    z-index: 1;
+}
+
+/* LOGO */
+.logo {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
 }
 
 /* HEADER */
 .header {
     text-align: center;
     margin-bottom: 20px;
-}
-
-.logo {
-    width: 100px;
-    border-radius: 50%;
-    margin-bottom: 10px;
 }
 
 /* CARDS */
@@ -65,8 +61,8 @@ body {
     background: #1c5d85;
     border-radius: 15px;
     padding: 15px;
-    margin-bottom: 10px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .card-custom:hover {
@@ -75,13 +71,11 @@ body {
     transform: translateY(-3px);
 }
 
-/* ÍCONE */
 .card-icon {
     font-size: 18px;
     margin-top: 3px;
 }
 
-/* CONTEÚDO */
 .card-content h5 {
     font-size: 15px;
     margin: 0;
@@ -107,110 +101,106 @@ body {
     margin-top: 15px;
 }
 
+/* VOLTAR */
+.btn-back {
+    background: transparent;
+    border: none;
+    color: #0cc3e7;
+    font-size: 14px;
+    text-decoration: underline;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
 /* FOOTER */
 .footer {
-    text-align: center;
     margin-top: 15px;
     font-size: 12px;
     opacity: 0.6;
+    text-align: center;
 }
 
-/* BOTÃO VOLTAR */
-.btn-back {
-    background: #0cc3e7;
-    border-radius: 25px;
-    border: none;
-    color: #ffffff;
-    font-size: 14px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    text-decoration: underline;
-    gap: 5px;
-    cursor: pointer;
-    opacity: 0.8;
-    transition: 0.3s;
-}
+/* RESPONSIVO */
+@media (max-width: 576px) {
+    .main-box {
+        padding: 15px;
+    }
 
-.btn-back:hover {
-    opacity: 1;
+    .logo {
+        width: 80px;
+    }
+
+    .card-custom {
+        padding: 12px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- PARTÍCULAS -->
 <div id="tsparticles"></div>
 
-<div class="container-box">
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+    <div class="main-box">
 
-    <!-- BOTÃO VOLTAR -->
-    <button onclick="voltarPagina()" class="btn-back">
-        <i class="fas fa-arrow-left"></i> Voltar
-    </button>
+        <button onclick="voltarPagina()" class="btn-back">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
 
-    <!-- Header -->
-    <div class="header">
-         <img src="img/logo.png" class="logo">
-        <h5>Mentoria Workspaceti</h5>
-        <p>Transforme sua carreira com estratégia</p>
-    </div>
-
-    <!-- Cards -->
-    <div class="card-custom onclick="window.location.href='transicao.html'>
-        <i class="fas fa-rocket card-icon"></i>
-        <div class="card-content">
-            <h5>Transição para TI</h5>
-            <p>Entre na área com um plano claro e direto.</p>
+        <div class="header">
+            <img src="img/logo.png" class="logo">
+            <h5>Mentoria Workspaceti</h5>
+            <p>Transforme sua carreira com estratégia</p>
         </div>
-    </div>
 
-    <div class="card-custom" onclick="window.location.href='iniciantes.html'">
-        <i class="fas fa-laptop-code card-icon"></i>
-        <div class="card-content">
-            <h5>Iniciantes</h5>
-            <p>Primeira vaga da estratégia à contratação.</p>
+        <div class="d-grid gap-2">
+
+            <div class="card-custom" onclick="location.href='transicao.html'">
+                <i class="fas fa-arrow-right card-icon"></i>
+                <div class="card-content">
+                    <h5>Iniciantes</h5>
+                    <p>Primeira vaga da estratégia à contratação.</p>
+                </div>
+            </div>
+
+            <div class="card-custom" onclick="location.href='crescimento.html'">
+                <i class="fas fa-arrow-right card-icon"></i>
+                <div class="card-content">
+                    <h5>Crescimento</h5>
+                    <p>Evolua na carreira com direção.</p>
+                </div>
+            </div>
+
+            <div class="card-custom" onclick="location.href='automacao.html'">
+                <i class="fas fa-arrow-right card-icon"></i>
+                <div class="card-content">
+                    <h5>Automação</h5>
+                    <p>Ganhe produtividade e destaque.</p>
+                </div>
+            </div>
+
+            <div class="card-custom" onclick="location.href='posicionamento.html'">
+                <i class="fas fa-user-tie card-icon"></i>
+                <div class="card-content">
+                    <h5>Posicionamento</h5>
+                    <p>LinkedIn, CV e entrevistas.</p>
+                </div>
+            </div>
+
         </div>
-    </div>
 
-    <div class="card-custom" onclick="window.location.href='crescimento.html'">
-        <i class="fas fa-chart-line card-icon"></i>
-        <div class="card-content">
-            <h5>Crescimento</h5>
-            <p>Evolua na carreira com direção.</p>
+        <a href="https://wa.me/558192651174" class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Agendar Mentoria
+        </a>
+
+        <div class="footer">
+            © 2026 Workspaceti
         </div>
+
     </div>
-
-    <div class="card-custom" onclick="window.location.href='automacao.html'">
-        <i class="fas fa-cogs card-icon"></i>
-        <div class="card-content">
-            <h5>Automação</h5>
-            <p>Ganhe produtividade e destaque.</p>
-        </div>
-    </div>
-
-    <div class="card-custom onclick="window.location.href='posicionamento.html'>
-        <i class="fas fa-user-tie card-icon"></i>
-        <div class="card-content">
-            <h5>Posicionamento</h5>
-            <p>LinkedIn, CV e entrevistas.</p>
-        </div>
-    </div>
-
-    <!-- Botão WhatsApp -->
-    <a href="https://wa.me/558192651174" class="btn-whatsapp">
-        <i class="fab fa-whatsapp"></i> Agendar Mentoria
-    </a>
-
-    <!-- Footer -->
-    <div class="footer">
-        © 2026 Workspaceti
-    </div>
-
 </div>
 
-<!-- Script do botão voltar -->
 <script>
 function voltarPagina() {
     if (window.history.length > 1) {
@@ -221,33 +211,15 @@ function voltarPagina() {
 }
 </script>
 
-<!-- PARTÍCULAS -->
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
 <script>
 tsParticles.load("tsparticles", {
-    fpsLimit: 60,
-    interactivity: {
-        events: {
-            onHover: { enable: true, mode: "repulse" },
-            onClick: { enable: true, mode: "push" }
-        }
-    },
     particles: {
+        number: { value: 60 },
         color: { value: "#00d4ff" },
-        links: {
-            color: "#00d4ff",
-            distance: 150,
-            enable: true,
-            opacity: 0.5
-        },
-        move: {
-            enable: true,
-            speed: 2
-        },
-        number: { value: 80 },
-        opacity: { value: 0.5 },
-        size: { value: { min: 1, max: 3 } }
+        links: { enable: true, color: "#00d4ff" },
+        move: { enable: true, speed: 1 }
     }
 });
 </script>
