@@ -3,28 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Serviços de TI</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 
+/* RESET SEGURO PARA MOBILE */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* ✅ CORREÇÃO PRINCIPAL */
+}
+
 body {
     font-family: 'Poppins', sans-serif;
-    margin: 0;
     text-align: center;
     color: white;
     background: radial-gradient(circle at top, #133b5c, #0b1f33 70%);
-    overflow-x: hidden;
 }
 
-/* FUNDO ANIMADO */
+/* FUNDO */
 body::before {
     content: "";
     position: fixed;
-    width: 200%;
-    height: 200%;
+    inset: 0; /* ✅ evita vazamento */
     background: radial-gradient(circle, rgba(0,212,255,0.12) 1px, transparent 1px);
     background-size: 40px 40px;
     animation: bgMove 20s linear infinite;
@@ -36,31 +43,31 @@ body::before {
     to { transform: translate(-200px,-200px); }
 }
 
-/* CONTAINER CENTRAL */
+/* CONTAINER */
 .container {
-    max-width: 480px;
     width: 100%;
+    max-width: 480px;
     margin: 60px auto;
-    padding: 0 15px;
+    padding: 0 15px; /* ✅ evita corte lateral */
 }
 
 /* LOGO */
 .logo {
-    width: 130px;
+    width: 120px;
+    max-width: 100%;
     border-radius: 50%;
     margin-bottom: 15px;
     box-shadow: 0 0 20px #00d4ff;
 }
 
-/* BOTÃO VOLTAR */
+/* VOLTAR */
 .btn-voltar {
     position: fixed;
-    top: 15px;
-    left: 15px;
-    width: 40px;
-    height: 40px;
+    top: 14px;
+    left: 14px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    text-decoration: none;
     color: white;
     border: 1px solid #00d4ff;
     display: flex;
@@ -68,27 +75,27 @@ body::before {
     justify-content: center;
     backdrop-filter: blur(10px);
     font-size: 18px;
+    text-decoration: none;
 }
 
-/* CARD */
+/* CARDS */
 .card-link {
+    width: 100%; /* ✅ evita estouro */
     margin: 12px 0;
-    padding: 16px;
-    border-radius: 30px;
+    padding: 14px;
+    border-radius: 28px;
     border: 1px solid #00d4ff;
     background: rgba(28,93,133,0.25);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: 0.3s;
     font-size: 15px;
 }
 
-/* HOVER */
 .card-link:hover {
     background: #00d4ff;
     color: #0b1f33;
 }
 
-/* ATIVO */
 .card-link.active {
     background: #00d4ff;
     color: #0b1f33;
@@ -99,8 +106,8 @@ body::before {
 .card-detail {
     max-height: 0;
     overflow: hidden;
-    transition: all 0.4s ease;
     opacity: 0;
+    transition: all 0.4s ease;
 }
 
 .card-detail.open {
@@ -109,15 +116,15 @@ body::before {
     margin-bottom: 10px;
 }
 
-/* CONTEUDO */
+/* TEXTO */
 .card-content {
-    padding: 15px;
+    padding: 12px;
     font-size: 14px;
     text-align: left;
     border-left: 3px solid #00d4ff;
 }
 
-/* BOTÃO WHATS */
+/* BOTÃO */
 .btn-whats {
     margin-top: 25px;
     display: block;
@@ -126,23 +133,31 @@ body::before {
     background: #25d366;
     color: white;
     text-decoration: none;
-    font-size: 15px;
 }
 
-/* ✅ RESPONSIVO */
+/* ✅ MOBILE AJUSTES */
 @media (max-width: 576px) {
 
     .container {
         margin-top: 80px;
+        padding: 0 12px;
     }
 
     .logo {
-        width: 100px;
+        width: 95px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
     }
 
     .card-link {
-        padding: 14px;
         font-size: 14px;
+        padding: 12px;
     }
 
     .card-content {
@@ -150,13 +165,9 @@ body::before {
     }
 
     .btn-voltar {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
         font-size: 16px;
-    }
-
-    .btn-whats {
-        font-size: 14px;
     }
 }
 
@@ -168,7 +179,7 @@ body::before {
 <a href="index.html" class="btn-voltar">←</a>
 
 <div class="container">
-    
+
     <img src="img/logo.png" class="logo">
 
     <h2>🚀 Serviços de TI</h2>
@@ -180,7 +191,7 @@ body::before {
     <div id="dev" class="card-detail">
         <div class="card-content">
             Sistemas web, APIs e soluções personalizadas.<br><br>
-            ✅ Sistemas internos(desenvolvimento e manutenção)<br>
+            ✅ Sistemas internos<br>
             ✅ Integrações<br>
             ✅ Dashboards
         </div>
@@ -192,9 +203,9 @@ body::before {
     <div id="auto" class="card-detail">
         <div class="card-content">
             Automatize tarefas e reduza custos.<br><br>
-            ✅ Python,N8N,Make<br>
-            ✅ Bots e fluxos de trabalho<br>
-            ✅ Integrações de sistemae e plataformas
+            ✅ Python<br>
+            ✅ Bots<br>
+            ✅ Integrações
         </div>
     </div>
 
@@ -204,9 +215,9 @@ body::before {
     <div id="proj" class="card-detail">
         <div class="card-content">
             Implementação e planejamento tecnológico.<br><br>
-            ✅ Implantações(ERP, sistemas e processos)<br>
-            ✅ Governança(Políticas e procedimentos)<br>
-            ✅ Estruturação(Servidores, redes e segurança..)
+            ✅ Implantações<br>
+            ✅ Governança<br>
+            ✅ Estruturação
         </div>
     </div>
 
@@ -216,14 +227,14 @@ body::before {
     <div id="bi" class="card-detail">
         <div class="card-content">
             Visualização de dados inteligente.<br><br>
-            ✅ Power BI e automação<br>
+            ✅ Power BI<br>
             ✅ Indicadores<br>
             ✅ APIs
         </div>
     </div>
 
     <a href="https://wa.me/558192651174" class="btn-whats">
-        💬 Solicite um serviço ou projeto.
+        💬 Falar sobre projeto
     </a>
 
 </div>
