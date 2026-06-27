@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Workspaceti</title>
 
-<!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 
 <!-- Bootstrap -->
@@ -27,7 +26,7 @@ body {
     background: radial-gradient(circle at top, #133b5c, #0b1f33 70%);
 }
 
-/* CAMADA ANIMADA TECH */
+/* BACKGROUND ANIMADO */
 body::before {
     content: "";
     position: fixed;
@@ -39,7 +38,6 @@ body::before {
     z-index: -2;
 }
 
-/* GLOW SUAVE */
 body::after {
     content: "";
     position: fixed;
@@ -49,26 +47,9 @@ body::after {
     z-index: -1;
 }
 
-/* MOVIMENTO DO GRID */
 @keyframes moveGrid {
-    from {
-        transform: translate(0, 0);
-    }
-    to {
-        transform: translate(-200px, -200px);
-    }
-}
-
-@keyframes moveBg {
-    0% { transform: translate(0,0); }
-    50% { transform: translate(-30%, -30%); }
-    100% { transform: translate(0,0); }
-}
-
-/* CONTAINER */
-.container {
-    max-width: 420px;
-    margin-top: 80px;
+    from { transform: translate(0, 0); }
+    to { transform: translate(-200px, -200px); }
 }
 
 /* LOGO */
@@ -81,15 +62,13 @@ body::after {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 10px rgba(244,197,66,0.4); }
-    50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(244,197,66,0.9); }
-    100% { transform: scale(1); box-shadow: 0 0 10px rgba(244,197,66,0.4); }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
-/* BOTÕES NEON */
+/* BOTÕES */
 .btn-linktree {
-    display: block;
-    margin: 12px 0;
     padding: 14px;
     border-radius: 30px;
     text-decoration: none;
@@ -132,18 +111,15 @@ body::after {
     100% { transform: rotate(360deg); }
 }
 
-/* TEXTO */
-h2 {
-    font-weight: 600;
+/* RESPONSIVO */
+@media (max-width: 576px) {
+    .logo { width: 110px; }
+    h2 { font-size: 20px; }
+    p { font-size: 14px; }
+    .btn-linktree { padding: 12px; font-size: 14px; }
 }
 
-p {
-    opacity: 0.8;
-}
-
-/* FOOTER */
 .footer {
-    margin-top: 20px;
     font-size: 12px;
     opacity: 0.5;
 }
@@ -152,84 +128,77 @@ p {
 </head>
 
 <body>
-    
-<!-- PARTICULAS -->
-<div id="tsparticles"></div>
 
+<div id="tsparticles"></div>
 
 <!-- LOADING -->
 <div id="loader">
     <div class="spinner"></div>
 </div>
 
-<div class="container">
+<div class="container-fluid d-flex align-items-center justify-content-center min-vh-100">
+    <div class="col-12 col-sm-10 col-md-6 col-lg-4 text-center">
 
-    <img src="img/logo.png" class="logo">
+        <img src="img/logo.png" class="logo">
 
-    <h2>@workspaceti</h2>
-    <p>Dicas de TI & Negócios</p>
+        <h2>@workspaceti</h2>
+        <p>Dicas de TI & Negócios</p>
 
-    <a href="cursos.html" class="btn-linktree"><i class="fas fa-graduation-cap"></i> Cursos</a>
-    <a href="ebooks.html" class="btn-linktree"><i class="fas fa-book"></i> eBooks</a>    
-    <a href="mentoria.html" class="btn-linktree"><i class="fas fa-bullseye"></i> Mentoria</a>
-    <a href="servicos.html" class="btn-linktree"><i class="fas fa-code"></i> Serviços</a>    
-    <a href="https://youtube.com/@workspacetinegocios" class="btn-linktree"><i class="fab fa-youtube"></i> YouTube</a>
-    <a href="https://www.linkedin.com/in/pedro-henrique-sis/" class="btn-linktree"><i class="fab fa-linkedin"></i> LinkedIn</a>
-    <a href="https://wa.me/558192651174" class="btn-linktree"><i class="fab fa-whatsapp"></i> Fale comigo</a>
+        <div class="d-grid gap-2">
 
-    <div id="tsparticles"></div>
-    <div class="footer">
-        © 2026 Workspaceti
+            <a href="cursos.html" class="btn btn-linktree">
+                <i class="fas fa-graduation-cap"></i> Cursos
+            </a>
+
+            <a href="ebooks.html" class="btn btn-linktree">
+                <i class="fas fa-book"></i> eBooks
+            </a>
+
+            <a href="mentoria.html" class="btn btn-linktree">
+                <i class="fas fa-bullseye"></i> Mentoria
+            </a>
+
+            <a href="servicos.html" class="btn btn-linktree">
+                <i class="fas fa-code"></i> Serviços
+            </a>
+
+            <a href="https://youtube.com/@workspacetinegocios" class="btn btn-linktree">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+
+            <a href="https://www.linkedin.com/in/pedro-henrique-sis/" class="btn btn-linktree">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+
+            <a href="https://wa.me/558192651174" class="btn btn-linktree">
+                <i class="fab fa-whatsapp"></i> Fale comigo
+            </a>
+
+        </div>
+
+        <div class="footer mt-3">
+            © 2026 Workspaceti
+        </div>
+
     </div>
-
 </div>
 
 <script>
-// REMOVE LOADING
 window.onload = function() {
     document.getElementById("loader").style.display = "none";
 };
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
 <script>
 tsParticles.load("tsparticles", {
-    fpsLimit: 60,
-    interactivity: {
-        events: {
-            onHover: { enable: true, mode: "repulse" },
-            onClick: { enable: true, mode: "push" },
-            resize: true
-        },
-        modes: {
-            repulse: { distance: 100, duration: 0.4 },
-            push: { quantity: 4 }
-        }
-    },
     particles: {
+        number: { value: 60 },
         color: { value: "#00d4ff" },
-        links: {
-            color: "#00d4ff",
-            distance: 150,
-            enable: true,
-            opacity: 0.5,
-            width: 1
-        },
-        collisions: { enable: false },
-        move: {
-            direction: "none",
-            enable: true,
-            outModes: { default: "bounce" },
-            random: false,
-            speed: 2,
-            straight: false
-        },
-        number: { density: { enable: true, area: 800 }, value: 80 },
-        opacity: { value: 0.5 },
-        shape: { type: "circle" },
-        size: { value: { min: 1, max: 3 } }
-    },
-    detectRetina: true
+        links: { enable: true, color: "#00d4ff" },
+        move: { enable: true, speed: 1 }
+    }
 });
 </script>
 
