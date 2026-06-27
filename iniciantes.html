@@ -8,9 +8,13 @@
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 
-<!-- CSS -->
+<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Icons -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<!-- Fonte -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -21,25 +25,21 @@ body {
     margin: 0;
 }
 
-/* partículas */
+/* PARTÍCULAS */
 #tsparticles {
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: -1;
 }
 
-/* container */
-.container-box {
+/* CONTAINER CENTRAL */
+.main-box {
+    max-width: 500px;
     width: 100%;
-    max-width: 420px;
-    margin: auto;
-    padding: 20px;
-    position: relative;
-    z-index: 1;
 }
 
-/* header */
+/* HEADER */
 .header {
     text-align: center;
     margin-bottom: 20px;
@@ -51,7 +51,7 @@ body {
     margin-bottom: 10px;
 }
 
-/* botão voltar */
+/* VOLTAR */
 .btn-back {
     background: none;
     border: none;
@@ -63,7 +63,7 @@ body {
     margin-bottom: 10px;
 }
 
-/* cards */
+/* CARDS */
 .card-custom {
     display: flex;
     align-items: flex-start;
@@ -71,7 +71,6 @@ body {
     background: #1c5d85;
     border-radius: 15px;
     padding: 15px;
-    margin-bottom: 10px;
     transition: 0.3s;
 }
 
@@ -97,11 +96,11 @@ body {
     opacity: 0.85;
 }
 
-/* botão whatsapp */
+/* BOTÃO */
 .btn-whatsapp {
     display: block;
     background: #25D366;
-    padding: 12px;
+    padding: 14px;
     border-radius: 25px;
     width: 100%;
     font-weight: 600;
@@ -109,83 +108,116 @@ body {
     text-decoration: none;
     text-align: center;
     margin-top: 15px;
+    transition: 0.3s;
 }
 
-/* footer */
+.btn-whatsapp:hover {
+    background: #1ebe5d;
+}
+
+/* FOOTER */
 .footer {
     text-align: center;
     margin-top: 15px;
     font-size: 12px;
     opacity: 0.6;
 }
+
+/* RESPONSIVO */
+@media (max-width: 576px) {
+
+    .main-box {
+        padding: 15px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    .card-custom {
+        padding: 12px;
+    }
+
+    .card-content h5 {
+        font-size: 14px;
+    }
+
+    .card-content p {
+        font-size: 12px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<!-- partículas -->
 <div id="tsparticles"></div>
 
-<div class="container-box">
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+    <div class="main-box">
 
-    <!-- botão voltar -->
-    <button onclick="voltarPagina()" class="btn-back">
-        <i class="fas fa-arrow-left"></i> Voltar
-    </button>
+        <!-- VOLTAR -->
+        <button onclick="voltarPagina()" class="btn-back">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
 
-    <!-- header -->
-    <div class="header">
-          <img src="img/logo.png" class="logo">
-        <h5>Mentoria para Iniciantes</h5>
-        <p>Construa sua carreira em TI do zero até a primeira vaga</p>
-    </div>
-
-    <!-- cards -->
-    <div class="card-custom">
-        <i class="fas fa-user-graduate card-icon"></i>
-        <div class="card-content">
-            <h5>Para quem é?</h5>
-            <p>Sem experiência, perdido na área ou quer entrar rápido no mercado.</p>
+        <!-- HEADER -->
+        <div class="header">
+            <img src="img/logo.png" class="logo">
+            <h5>Mentoria para Iniciantes</h5>
+            <p>Construa sua carreira em TI do zero até a primeira vaga</p>
         </div>
-    </div>
 
-    <div class="card-custom">
-        <i class="fas fa-triangle-exclamation card-icon"></i>
-        <div class="card-content">
-            <h5>Problemas comuns</h5>
-            <p>Não sabe o que estudar, currículo fraco ou dificuldade em entrevistas.</p>
+        <!-- CARDS -->
+        <div class="d-grid gap-2">
+
+            <div class="card-custom">
+                <i class="fas fa-user-graduate card-icon"></i>
+                <div class="card-content">
+                    <h5>Para quem é?</h5>
+                    <p>Sem experiência, perdido na área ou quer entrar rápido no mercado.</p>
+                </div>
+            </div>
+
+            <div class="card-custom">
+                <i class="fas fa-triangle-exclamation card-icon"></i>
+                <div class="card-content">
+                    <h5>Problemas comuns</h5>
+                    <p>Não sabe o que estudar, currículo fraco ou dificuldade em entrevistas.</p>
+                </div>
+            </div>
+
+            <div class="card-custom">
+                <i class="fas fa-lightbulb card-icon"></i>
+                <div class="card-content">
+                    <h5>O que você vai aprender</h5>
+                    <p>Plano de estudos, currículo, LinkedIn e preparação para entrevistas.</p>
+                </div>
+            </div>
+
+            <div class="card-custom">
+                <i class="fas fa-fire card-icon"></i>
+                <div class="card-content">
+                    <h5>Diferencial</h5>
+                    <p>Acompanhamento estratégico com foco na sua primeira vaga.</p>
+                </div>
+            </div>
+
         </div>
-    </div>
 
-    <div class="card-custom">
-        <i class="fas fa-lightbulb card-icon"></i>
-        <div class="card-content">
-            <h5>O que você vai aprender</h5>
-            <p>Plano de estudos, currículo, LinkedIn e preparação para entrevistas.</p>
+        <!-- BOTÃO -->
+        <a href="https://wa.me/558192651174" class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Quero começar agora
+        </a>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            © 2026 Workspaceti
         </div>
+
     </div>
-
-    <div class="card-custom">
-        <i class="fas fa-fire card-icon"></i>
-        <div class="card-content">
-            <h5>Diferencial</h5>
-            <p>Acompanhamento estratégico com foco na sua primeira vaga.</p>
-        </div>
-    </div>
-
-    <!-- botão -->
-    <a href="https://wa.me/558192651174" class="btn-whatsapp">
-        <i class="fab fa-whatsapp"></i> Quero começar agora
-    </a>
-
-    <!-- footer -->
-    <div class="footer">
-        © 2026 Workspaceti
-    </div>
-
 </div>
 
-<!-- botão voltar -->
 <script>
 function voltarPagina() {
     if (window.history.length > 1) {
@@ -196,23 +228,15 @@ function voltarPagina() {
 }
 </script>
 
-<!-- TSParticles -->
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
 <script>
 tsParticles.load("tsparticles", {
     particles: {
-        number: { value: 80 },
+        number: { value: 60 },
         color: { value: "#00d4ff" },
-        links: {
-            enable: true,
-            color: "#00d4ff",
-            distance: 150,
-            opacity: 0.5
-        },
-        move: { enable: true, speed: 2 },
-        size: { value: { min: 1, max: 3 } },
-        opacity: { value: 0.5 }
+        links: { enable: true, color: "#00d4ff" },
+        move: { enable: true, speed: 1 }
     }
 });
 </script>
