@@ -16,6 +16,7 @@ body {
     text-align: center;
     color: white;
     background: radial-gradient(circle at top, #133b5c, #0b1f33 70%);
+    overflow-x: hidden;
 }
 
 /* FUNDO ANIMADO */
@@ -35,9 +36,12 @@ body::before {
     to { transform: translate(-200px,-200px); }
 }
 
+/* CONTAINER CENTRAL */
 .container {
-    max-width: 420px;
+    max-width: 480px;
+    width: 100%;
     margin: 60px auto;
+    padding: 0 15px;
 }
 
 /* LOGO */
@@ -51,10 +55,10 @@ body::before {
 /* BOTÃO VOLTAR */
 .btn-voltar {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 45px;
-    height: 45px;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     text-decoration: none;
     color: white;
@@ -63,17 +67,19 @@ body::before {
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(10px);
+    font-size: 18px;
 }
 
 /* CARD */
 .card-link {
     margin: 12px 0;
-    padding: 18px;
-    border-radius: 40px;
+    padding: 16px;
+    border-radius: 30px;
     border: 1px solid #00d4ff;
     background: rgba(28,93,133,0.25);
     cursor: pointer;
     transition: all 0.3s ease;
+    font-size: 15px;
 }
 
 /* HOVER */
@@ -89,11 +95,11 @@ body::before {
     box-shadow: 0 0 20px #00d4ff;
 }
 
-/* DETALHE ANIMADO */
+/* DETALHE */
 .card-detail {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.3s ease;
+    transition: all 0.4s ease;
     opacity: 0;
 }
 
@@ -120,6 +126,38 @@ body::before {
     background: #25d366;
     color: white;
     text-decoration: none;
+    font-size: 15px;
+}
+
+/* ✅ RESPONSIVO */
+@media (max-width: 576px) {
+
+    .container {
+        margin-top: 80px;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .card-link {
+        padding: 14px;
+        font-size: 14px;
+    }
+
+    .card-content {
+        font-size: 13px;
+    }
+
+    .btn-voltar {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .btn-whats {
+        font-size: 14px;
+    }
 }
 
 </style>
@@ -136,68 +174,61 @@ body::before {
     <h2>🚀 Serviços de TI</h2>
     <p>Soluções modernas para acelerar seu negócio</p>
 
-    <!-- CARD 1 -->
     <div class="card-link" onclick="toggleCard('dev', this)">
         💻 Desenvolvimento
     </div>
     <div id="dev" class="card-detail">
         <div class="card-content">
             Sistemas web, APIs e soluções personalizadas.<br><br>
-            ✅ Sistemas internos<br>
+            ✅ Sistemas internos(desenvolvimento e manutenção)<br>
             ✅ Integrações<br>
             ✅ Dashboards
         </div>
     </div>
 
-    <!-- CARD 2 -->
     <div class="card-link" onclick="toggleCard('auto', this)">
         ⚙️ Automação
     </div>
     <div id="auto" class="card-detail">
         <div class="card-content">
             Automatize tarefas e reduza custos.<br><br>
-            ✅ Python<br>
-            ✅ Bots<br>
-            ✅ Integrações
+            ✅ Python,N8N,Make<br>
+            ✅ Bots e fluxos de trabalho<br>
+            ✅ Integrações de sistemae e plataformas
         </div>
     </div>
 
-    <!-- CARD 3 -->
     <div class="card-link" onclick="toggleCard('proj', this)">
         📊 Projetos de TI
     </div>
     <div id="proj" class="card-detail">
         <div class="card-content">
             Implementação e planejamento tecnológico.<br><br>
-            ✅ Implantações<br>
-            ✅ Governança<br>
-            ✅ Estruturação
+            ✅ Implantações(ERP, sistemas e processos)<br>
+            ✅ Governança(Políticas e procedimentos)<br>
+            ✅ Estruturação(Servidores, redes e segurança..)
         </div>
     </div>
 
-    <!-- CARD 4 -->
     <div class="card-link" onclick="toggleCard('bi', this)">
         📈 BI e Dashboards
     </div>
     <div id="bi" class="card-detail">
         <div class="card-content">
             Visualização de dados inteligente.<br><br>
-            ✅ Power BI<br>
+            ✅ Power BI e automação<br>
             ✅ Indicadores<br>
             ✅ APIs
         </div>
     </div>
 
-    <!-- CTA -->
-    <a href="https://wa.me/558192651174" class="btn-whats" onclick="trackClick('whatsapp')">
-        💬 Falar sobre projeto
+    <a href="https://wa.me/558192651174" class="btn-whats">
+        💬 Solicite um serviço ou projeto.
     </a>
 
 </div>
 
 <script>
-
-/* CONTROLE DE CARDS */
 function toggleCard(id, element){
 
     const allDetails = document.querySelectorAll('.card-detail');
@@ -220,18 +251,7 @@ function toggleCard(id, element){
         current.classList.add('open');
         element.classList.add('active');
     }
-
-    trackClick(id);
 }
-
-/* TRACKING (pode integrar com GA depois) */
-function trackClick(name){
-    console.log("Clique em:", name);
-
-    // Google Analytics (exemplo futuro)
-    // gtag('event', 'click', { event_category: 'servicos', event_label: name });
-}
-
 </script>
 
 </body>
