@@ -3,35 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Serviços de TI</title>
+<title>Mentoria - Workspaceti</title>
 
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<!-- Fonte -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* RESET SEGURO PARA MOBILE */
+/* RESET */
 * {
     box-sizing: border-box;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* ✅ CORREÇÃO PRINCIPAL */
-}
-
 body {
     font-family: 'Poppins', sans-serif;
-    text-align: center;
+    margin: 0;
     color: white;
     background: radial-gradient(circle at top, #133b5c, #0b1f33 70%);
+    overflow-x: hidden;
 }
 
 /* FUNDO */
 body::before {
     content: "";
     position: fixed;
-    inset: 0; /* ✅ evita vazamento */
+    inset: 0;
     background: radial-gradient(circle, rgba(0,212,255,0.12) 1px, transparent 1px);
     background-size: 40px 40px;
     animation: bgMove 20s linear infinite;
@@ -43,25 +48,24 @@ body::before {
     to { transform: translate(-200px,-200px); }
 }
 
-/* CONTAINER */
-.container {
+/* PARTICULAS */
+#tsparticles {
+    position: fixed;
     width: 100%;
-    max-width: 480px;
-    margin: 60px auto;
-    padding: 0 15px; /* ✅ evita corte lateral */
+    height: 100%;
+    z-index: -2;
 }
 
-/* LOGO */
-.logo {
-    width: 120px;
-    max-width: 100%;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    box-shadow: 0 0 20px #00d4ff;
+/* CONTAINER */
+.main-box {
+    max-width: 480px;
+    width: 100%;
+    margin: auto;
+    padding: 20px;
 }
 
 /* VOLTAR */
-.btn-voltar {
+.btn-back {
     position: fixed;
     top: 14px;
     left: 14px;
@@ -78,53 +82,62 @@ body::before {
     text-decoration: none;
 }
 
-/* CARDS */
-.card-link {
-    width: 100%; /* ✅ evita estouro */
-    margin: 12px 0;
+/* LOGO */
+.logo {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 0 20px #00d4ff;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ✅ CARD ESTILO SERVIÇOS */
+.card-mentoria {
+    width: 100%;
+    margin: 10px 0;
     padding: 14px;
     border-radius: 28px;
     border: 1px solid #00d4ff;
     background: rgba(28,93,133,0.25);
     cursor: pointer;
     transition: 0.3s;
-    font-size: 15px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.card-link:hover {
+.card-mentoria:hover {
     background: #00d4ff;
     color: #0b1f33;
 }
 
-.card-link.active {
+.card-mentoria.active {
     background: #00d4ff;
     color: #0b1f33;
     box-shadow: 0 0 20px #00d4ff;
 }
 
-/* DETALHE */
-.card-detail {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.4s ease;
+.card-mentoria i {
+    font-size: 16px;
 }
 
-.card-detail.open {
-    max-height: 300px;
-    opacity: 1;
-    margin-bottom: 10px;
-}
-
-/* TEXTO */
-.card-content {
-    padding: 12px;
+.card-mentoria .texto {
     font-size: 14px;
-    text-align: left;
-    border-left: 3px solid #00d4ff;
 }
 
-/* BOTÃO */
+.card-mentoria .texto small {
+    display: block;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* BOTÃO WHATS */
 .btn-whats {
     margin-top: 25px;
     display: block;
@@ -133,41 +146,35 @@ body::before {
     background: #25d366;
     color: white;
     text-decoration: none;
+    text-align: center;
+    font-weight: 600;
 }
 
-/* ✅ MOBILE AJUSTES */
+/* FOOTER */
+.footer {
+    margin-top: 15px;
+    font-size: 12px;
+    opacity: 0.6;
+    text-align: center;
+}
+
+/* RESPONSIVO */
 @media (max-width: 576px) {
 
-    .container {
-        margin-top: 80px;
-        padding: 0 12px;
+    .main-box {
+        padding: 15px;
     }
 
     .logo {
-        width: 95px;
+        width: 80px;
     }
 
-    h2 {
-        font-size: 20px;
+    h5 {
+        font-size: 16px;
     }
 
     p {
-        font-size: 14px;
-    }
-
-    .card-link {
-        font-size: 14px;
-        padding: 12px;
-    }
-
-    .card-content {
         font-size: 13px;
-    }
-
-    .btn-voltar {
-        width: 32px;
-        height: 32px;
-        font-size: 16px;
     }
 }
 
@@ -176,93 +183,94 @@ body::before {
 
 <body>
 
-<a href="index.html" class="btn-voltar">←</a>
+<div id="tsparticles"></div>
 
-<div class="container">
+<a href="index.html" class="btn-back">←</a>
 
-    <img src="img/logo.png" class="logo">
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+    <div class="main-box">
 
-    <h2>🚀 Serviços de TI</h2>
-    <p>Soluções modernas para acelerar seu negócio</p>
-
-    <div class="card-link" onclick="toggleCard('dev', this)">
-        💻 Desenvolvimento
-    </div>
-    <div id="dev" class="card-detail">
-        <div class="card-content">
-            Sistemas web, APIs e soluções personalizadas.<br><br>
-            ✅ Sistemas internos<br>
-            ✅ Integrações<br>
-            ✅ Dashboards
+        <div class="header">
+            <img src="img/logo.png" class="logo">
+            <h5>Mentoria Workspaceti</h5>
+            <p>Transforme sua carreira com estratégia</p>
         </div>
-    </div>
 
-    <div class="card-link" onclick="toggleCard('auto', this)">
-        ⚙️ Automação
-    </div>
-    <div id="auto" class="card-detail">
-        <div class="card-content">
-            Automatize tarefas e reduza custos.<br><br>
-            ✅ Python<br>
-            ✅ Bots<br>
-            ✅ Integrações
+        <!-- CARDS -->
+        <div>
+
+            <div class="card-mentoria" onclick="ativarCard(this, 'transicao.html')">
+                <i class="fas fa-arrow-right"></i>
+                <div class="texto">
+                    Iniciantes
+                    <small>Primeira vaga da estratégia à contratação</small>
+                </div>
+            </div>
+
+            <div class="card-mentoria" onclick="ativarCard(this, 'crescimento.html')">
+                <i class="fas fa-chart-line"></i>
+                <div class="texto">
+                    Crescimento
+                    <small>Evolua na carreira com direção</small>
+                </div>
+            </div>
+
+            <div class="card-mentoria" onclick="ativarCard(this, 'automacao.html')">
+                <i class="fas fa-cogs"></i>
+                <div class="texto">
+                    Automação
+                    <small>Ganhe produtividade e destaque</small>
+                </div>
+            </div>
+
+            <div class="card-mentoria" onclick="ativarCard(this, 'posicionamento.html')">
+                <i class="fas fa-user-tie"></i>
+                <div class="texto">
+                    Posicionamento
+                    <small>LinkedIn, CV e entrevistas</small>
+                </div>
+            </div>
+
         </div>
-    </div>
 
-    <div class="card-link" onclick="toggleCard('proj', this)">
-        📊 Projetos de TI
-    </div>
-    <div id="proj" class="card-detail">
-        <div class="card-content">
-            Implementação e planejamento tecnológico.<br><br>
-            ✅ Implantações<br>
-            ✅ Governança<br>
-            ✅ Estruturação
+        <!-- BOTÃO -->
+        <a href="https://wa.me/558192651174" class="btn-whats">
+            💬 Agendar Mentoria
+        </a>
+
+        <div class="footer">
+            © 2026 Workspaceti
         </div>
-    </div>
 
-    <div class="card-link" onclick="toggleCard('bi', this)">
-        📈 BI e Dashboards
     </div>
-    <div id="bi" class="card-detail">
-        <div class="card-content">
-            Visualização de dados inteligente.<br><br>
-            ✅ Power BI<br>
-            ✅ Indicadores<br>
-            ✅ APIs
-        </div>
-    </div>
-
-    <a href="https://wa.me/558192651174" class="btn-whats">
-        💬 Falar sobre projeto
-    </a>
-
 </div>
 
 <script>
-function toggleCard(id, element){
+function ativarCard(element, destino){
 
-    const allDetails = document.querySelectorAll('.card-detail');
-    const allCards = document.querySelectorAll('.card-link');
+    const cards = document.querySelectorAll('.card-mentoria');
 
-    allDetails.forEach(el => {
-        if(el.id !== id){
-            el.classList.remove('open');
-        }
-    });
+    cards.forEach(c => c.classList.remove('active'));
 
-    allCards.forEach(c => c.classList.remove('active'));
+    element.classList.add('active');
 
-    const current = document.getElementById(id);
-
-    if(current.classList.contains('open')){
-        current.classList.remove('open');
-        element.classList.remove('active');
-    } else {
-        current.classList.add('open');
-        element.classList.add('active');
-    }
+    setTimeout(() => {
+        window.location.href = destino;
+    }, 200);
 }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<script>
+tsParticles.load("tsparticles", {
+    particles: {
+        number: { value: 60 },
+        color: { value: "#00d4ff" },
+        links: { enable: true, color: "#00d4ff" },
+        move: { enable: true, speed: 1 }
+    }
+});
 </script>
 
 </body>
